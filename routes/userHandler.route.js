@@ -6,6 +6,6 @@ const userHandlerControllers = require("../controllers/userHandler.controllers")
 router.route("/signup").post(userHandlerControllers.createUsers);
 
 // login route
-router.route("/login").get();
+router.route("/login").post(userHandlerControllers.loginUsers);
 
 module.exports = router;
