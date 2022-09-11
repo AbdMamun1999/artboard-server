@@ -4,6 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const colors = require("colors");
 const userRouter = require("./routes/userHandler.route");
+const errorHandler = require("./middlewares/errorHandlers");
 
 // express app initialization
 const app = express();
@@ -26,6 +27,9 @@ app.use("/user", userRouter);
 app.get("/", (req, res) => {
   res.send("Artboard server is working");
 });
+
+// Global error handler
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`App is running on port ${port}`.yellow.bold);
